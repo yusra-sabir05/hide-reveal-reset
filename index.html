@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Reveal and Hide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #textInput {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #textDisplay {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Text Reveal and Hide</h2>
+
+    <input type="text" id="textInput" placeholder="Type your text here">
+    <br>
+    <button onclick="hideText()">Hide Text</button>
+    <button onclick="revealText()">Reveal Text</button>
+    <button onclick="resetText()">Reset Text</button>
+
+    <div id="textDisplay">.......</div>
+
+    <script>
+        let originalText = '';
+
+        function hideText() {
+            const textInput = document.getElementById('textInput');
+            originalText = textInput.value;
+            document.getElementById('textDisplay').textContent = '.......';
+        }
+
+        function revealText() {
+            document.getElementById('textDisplay').textContent = originalText;
+        }
+
+        function resetText() {
+            document.getElementById('textInput').value = '';
+            document.getElementById('textDisplay').textContent = '.......';
+            originalText = '';
+        }
+    </script>
+</body>
+</html>
